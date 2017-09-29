@@ -18,16 +18,24 @@ A module is a unit of functionality that is designed to achieve a single purpose
 
 A module consists of one or more components.  These are the parts that fit together to create the module.  For example a module could consist of an AWS Lambda function and an API Gateway gateway
 
-## naming things
-
-Naming things is hard.  The below guidelines are written so I didn't have to keep thinking about it
+## Rules and guidelines for cjlennon modules
 
 - name cjlennon modules as [developer name] - [project name] - [purpose]  For example `cjlennon-cognify-login` or `myname-cms-check-auth` and so on.  Have a maximum of four words  - so `myname-myproject-check-auth` not `myname-myproject-check-user-is-authorised`
-- name folder names as lower case with hypen.  So `my-folder-name`
-- name file names as lower case with hypen.  So `my-file-name.js`
+- use semantic versionning
+
+## Pattern - naming things
+
+Naming things is hard.  The below guidelines are written so I don't have to keep thinking about it
+
+- Folder names, file names and urls
+  - name these as lower case with hypen.  So `my-folder-name`, `my-file-name.js`, `/check-user-auth`
 - In code use camelCase.  So `let myModule = require('my-module.js')`.  Simply camelCase all words, so `htmlPage` not `HTMLPage` `myApi` not `myAPI` and so on.
+- For database tables and field names use MixedCase.  So `Contacts`, `OrderLines` tables, `Id`, `FirstName` field names etc.  
+- name commands eg. npm scripts as lower-case-with-hyphen.
+- Name environment variables as UPPERCASE_WITH_UNDERSCORE
+- For everything else (and there is a lot else :-) )  use camelCase.  In the 'everything else' banner would be JSON field names, HTML form fields, Swagger definitions, AWS API Gateway stage names, etc etc
+
+## Pattern - nodejs development
+
+- always `use strict`
 - for JavaScript code e.g. node.js code validate your formatting with [standard](https://github.com/standard/standard)
-- For data fields (database table names, field names, JSON field names, Swagger definitions etc) use MixedCase.  So `Contacts`, `OrderLines` tables, `Id`, `FirstName` field names etc
-- For everything else use camelCase
-- name commands lower-
-- ENV VARS
