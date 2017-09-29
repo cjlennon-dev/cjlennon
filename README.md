@@ -25,7 +25,9 @@ Naming things is hard.  The below guidelines are written so I didn't have to kee
 - name cjlennon modules as [developer name] - [project name] - [purpose]  For example `cjlennon-cognify-login` or `myname-cms-check-auth` and so on.  Have a maximum of four words  - so `myname-myproject-check-auth` not `myname-myproject-check-user-is-authorised`
 - name folder names as lower case with hypen.  So `my-folder-name`
 - name file names as lower case with hypen.  So `my-file-name.js`
-- In code use camelCase.  So `let myModule = require('my-module.js')`.  Simply camelCase everthing, so `htmlPage` not `HTMLPage` `myApi` not `myAPI` and so on.
+- In code use camelCase.  So `let myModule = require('my-module.js')`.  Simply camelCase all words, so `htmlPage` not `HTMLPage` `myApi` not `myAPI` and so on.
 - for JavaScript code e.g. node.js code validate your formatting with [standard](https://github.com/standard/standard)
 - For data fields (database table names, field names, JSON field names, Swagger definitions etc) use MixedCase.  So `Contacts`, `OrderLines` tables, `Id`, `FirstName` field names etc
-- For everything else use lowercase-with-dash.  Or if the dash (-) character is not supported e.g. a field is alphanumeric only use MixedCase
+- For everything else use camelCase
+- name commands lower-
+- ENV VARS
