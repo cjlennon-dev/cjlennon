@@ -2,15 +2,17 @@
 
 ## What is cjlennon?
 
-cjlennon is (apart from being my name - yes thats me - Chris Lennon!) is a system.  A system of software development that is designed to help software developers and software development teams produce high quality, high value code - and do this at the pace needed.  The system seeks to maximise developer creativity by maximizing developer freedom.  While also gaining the benifits that consistancy can bring.
+cjlennon is (apart from being my name - yes thats me - Chris Lennon!) is a system.  A system of software development that is designed to help software developers and software development teams produce high quality, high value code - and do this at the pace needed.  The system seeks to maximise developer creativity by maximizing developer freedom.  While also gaining the benifits that consistency can bring.
 
 The system consists of:
 
-- A set of patterns.  Patterrns are the heart of software development - by following a pettern you are effectively gaining years of experience simply by following in others footsteps.  Because the end goal of the system is to maximise value by maximising developer creativity, through maximizing developoer freedom these are presented simply as patterns. They are not rules. Heck, they are not even guidelines.  Having said that, every pattern presented here represents a _lot_ of hard-won experience.  I hope you will consider some of them :-)
+- A set of patterns.  Patterrns are the heart of software development - by following a pettern you are effectively gaining years of experience simply by following in others footsteps.
 
 - A sample application.  Named `cognify` this is a full, working piece of open-source software that shows these patterns in use.  This is a responsive web application that allows the management of AWS Cognito users and includes reporting and synchronization with Gsuite (Gmail) contacts.  I am hoping to release this early 2018
 
-Rather than simply presenting patterns in the abstract the sample applications shows one real-world application of these patterns in use.  Enjoy and I hope there will be many more!!
+Rather than simply presenting patterns in the abstract the sample applications shows (or at least _will_ when it is released) a real-world application of these patterns in use.  Enjoy!!
+
+# A.  Patterns required for collaboration
 
 ## Pattern: Everything is a module
 
@@ -26,39 +28,27 @@ A module is a unit of functionality that is designed to achieve a single purpose
 
 ### In the sample application
 
-In the sample application A module consists of one or more components.  These are the parts that fit together to create the module.  For example many cognify modules consist of an AWS Lambda function and an API Gateway gateway
+In the sample application a module consists of one or more components.  These are the parts that fit together to create the module.  For example many cognify modules consist of an AWS Lambda function and an API Gateway endpoint
 
-In the sample app modules are named as [developer name] - [project name] - [purpose]  For example `cjlennon-cognify-login` or `myname-cms-check-auth` and so on. 
+In the sample app modules are named as [developer name] - [project name] - [purpose]  For example `cjlennon-cognify-login`, `cjlennon-pipeline-update-lambda` and so on. 
 
 ## Pattern.  The cloud
 
-By cloud we mean the commercial cloud, e.g. AWS, Google, Azure etc etc.  The cloud has past the 'tipping point' and is now an essential service.  It offers many advantages and its not going anywhere
+By cloud we mean the commercial cloud, e.g. AWS, Google, Azure etc etc.  The cloud has past the 'tipping point' and is now an essential service.
 
 ## Pattern.  Serverless
 
-Serverless computing enables the rapid application development and deployment needed for cjlennon modules to add value
+Serverless computing enables the rapid application development and rapid deployment needed for cjlennon modules to add value
 
-## Pattern. Amazon Web Services
+## Pattern. Amazon Web Services (AWS)
 
 A common infrastructure is required to enable collaberation between module authors. Of course some of the patterns documented here may help you if you don't use AWS.
 
-## Pattern - naming things
+#  B.  Patterns recommended for collaberation
 
-Naming things is hard.  The below guidelines are written so I don't have to keep thinking about it
+## nodejs
 
-- Folder names, file names and urls
-  - name these as lower case with hypen.  So `my-folder-name`, `my-file-name.js`, `/check-user-auth`
-- In code use camelCase.  So `let myModule = require('my-module.js')`.  Simply camelCase all words, so `htmlPage` not `HTMLPage` `myApi` not `myAPI` and so on.
-- For database tables and field names use MixedCase.  So `Contacts`, `OrderLines` tables, `Id`, `FirstName` field names etc.  Don't be afraid to use plurals for table names, so `Sessions` rather than `Session`, `OrderLines` over `OrderLine` and so on
-- name commands eg. npm scripts as lower-case-with-hyphen.   Its one less key-stroke than the underscore
-- Name environment variables as UPPERCASE_WITH_UNDERSCORE
-- For everything else (and there is a lot else :-) )  use camelCase.  In the 'everything else' bucket would be JSON field names, HTML form fields, Swagger definitions, configuration such sas AWS API Gateway stage names, etc etc
-
-## Pattern - nodejs code style
-
-If you are developing in nodejs (the sample application is in nodejs) then:
-- always `use strict`
-- Validate your formatting with [standard](https://github.com/standard/standard)
+The primary reason you would use nodejs can be summed up in three letters [npm](https://www.npmjs.com).  The wealth of functionality is simply too powerful not to take advangate of
 
 ## Pattern: responding to problems
 
@@ -79,31 +69,55 @@ Of course not all problems are of equal severity and it is helpful to have a way
 
 ### cjlennon error logging specification
 
-When a problem or error is trapped by the module a single json log entry should be made, with the following structure.
-**alertType**  (required).  One of `cognifyAlert`, `cognifyAlertUnexpected`, `cognifyAlertSecurity`,
+When a problem or error is trapped by the module a single json log entry should be made, with the following structure:
+
+**alertType**  (required).  One of `[Application Name]Alert`, `[Application Name]AlertUnexpected`, `[Application Name]AlertSecurity`
+
+(so in the sample application: One of `cognifyAlert`, `cognifyAlertUnexpected`, `cognifyAlertSecurity`)
+
 Where:
 -  ‘cognify’ is the application name (and has been used here for the sake of clarity)
  -  `cognifyAlert` represents a specific error or problem case that has been trapped by the module.  
 -  `cognifyAlertUnexpected` represents an unexpected error (for example this error type could be logged within the `catch` section of a `try / catch` code block)
 -  `cognifyAlertSecuirty` is used for a specific problem case which may have security implications (for example a failed login attempt)
 
-**Module** (required):  The name of the module in which the problem occurred
+**module** (required):  The name of the module in which the problem occurred
 
-**Message** (required):  A summary of the error
+**message** (required):  A summary of the error
 
-**Notify**.  Use this field to store information around whether / how to notify people about the error.  For example you could set up a set of values as : NONE | SLACK | EMAIL | SMS
+**notify**.  Use this field to store information around whether / how to notify people about the error.  For example you could set up a set of values as : NONE | SLACK | EMAIL | SMS
 
-**User Message**.  If the error was reported back to the caller, this should be the exact text that was passed back to the user
+**userMessage**.  If the error was reported back to the caller, this should be the exact text that was passed back to the user
 
-**ErrorCode**.  A code associated with the error.  This should be generated by the application.  If an error with an error code is trapped, then this should be reported in the ‘context’ section
+**errorCode**.  A code associated with the error.  This should be generated by the application.  If an error with an error code is trapped, then this should be reported in the ‘context’ section
 
-**Context**.  Information that may be helpful when attempting to troubleshoot the error
+**context**.  Information that may be helpful when attempting to troubleshoot the error
 
-**StackTrace**.  A full stack trace of the error
+**stackTrace**.  A full stack trace of the error
 
-**Event**.  For AWS Lambda functions, the source event
+**event**.  For AWS Lambda functions, the source event
 
-**Context**.  For AWS Lambda functions, the context object
+**context**.  For AWS Lambda functions, the context object
+
+#  C.  Suggested patterns
+
+## Pattern - naming things
+
+Naming things is hard.  The below guidelines are written so I don't have to keep thinking about it
+
+- Folder names, file names and urls
+  - name these as lower case with hypen.  So `my-folder-name`, `my-file-name.js`, `/check-user-auth`
+- In code use camelCase.  So `let myModule = require('my-module.js')`.  Simply camelCase all words, so `htmlPage` not `HTMLPage` `myApi` not `myAPI` and so on.
+- For database tables and field names use MixedCase.  So `Contacts`, `OrderLines` tables, `Id`, `FirstName` field names etc.  Don't be afraid to use plurals for table names, so `Sessions` rather than `Session`, `OrderLines` over `OrderLine` and so on
+- name commands eg. npm scripts as lower-case-with-hyphen.   Its one less key-stroke than the underscore
+- Name environment variables as UPPERCASE_WITH_UNDERSCORE
+- For everything else (and there is a lot else :-) )  use camelCase.  In the 'everything else' bucket would be JSON field names, HTML form fields, Swagger definitions, configuration such sas AWS API Gateway stage names, etc etc
+
+## Pattern - nodejs code style
+
+If you are developing in nodejs (the sample application is in nodejs) then:
+- always `use strict`
+- Validate your formatting with [standard](https://github.com/standard/standard)
 
 ## Pattern.  Use [semantic versioning](http://semver.org)
 
