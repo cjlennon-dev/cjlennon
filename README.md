@@ -6,9 +6,9 @@ cjlennon is (apart from being my name - yes thats me - Chris Lennon!) is a syste
 
 The system consists of:
 
-- A set of patterns.  Patterrns are the heart of software development: the cjlennon defines some high level patterns, these a described below.
+- A set of patterns.  Patterrns are the heart of software development and the current cjlennon patterns are described below
 
-- A sample application.  Named `cognify` this is a full, working piece of open-source software that shows these patterns in use.  This is a responsive web application that allows the management of AWS Cognito users and includes reporting and synchronization with Gsuite (Gmail) contacts.  I am hoping to release this early 2018
+- A sample application.  Named `cognify` this is a full, working piece of open-source software that shows these patterns in use.  This sample application is a responsive web app that allows the management of AWS Cognito users and includes reporting and synchronization with Gsuite (Gmail) contacts.  I am hoping to release this early 2018
 
 Rather than simply presenting patterns in the abstract the sample applications shows (or at least _will_ when it is released) a real-world application of these patterns in use.  Enjoy!!
 
@@ -20,11 +20,11 @@ In the cjlennon system, everthing, from application functionality, deployment pi
 
 A module is a unit of functionality that is designed to achieve a single purpose. A module needs to have the following characteristics:
 
-- it is a single unit of functionality, i.e. it has a single purpose
-- it accepts a single input (e.g. an event) and produces a single output
-- it is self-contained.  That is it has no dependencies on other software other than what is fully contained in the repo.  The module may of course rely on other services, these dependencies need to be services interacted with over http
-- it is documented
-- it includes instructions and / or code that allows the user to host the module.  So the module sees the 'big picture' and enables end considers all aspects of the SDLC including production hosting and support (devops)
+- It is a single unit of functionality, i.e. it has a single purpose
+- It accepts a single input (e.g. an event) and produces a single output
+- It is self-contained.  That is it has no dependencies on other software other than what is fully contained in the repo.  The module may of course rely on other services, these dependencies need to be services interacted with over http
+- It is documented
+- It includes instructions and / or code that allows the user to host the module.  So the module sees the 'big picture' and enables end considers all aspects of the SDLC including production hosting and support (devops)
 
 ### In the sample application
 
@@ -108,8 +108,8 @@ It is often said that it is more important to be consistant in the way you name 
 - Folder names, file names and urls
   - name these as lower case with hypen.  So `my-folder-name`, `my-file-name.js`, `/check-user-auth`
 - In code use camelCase.  So `let myModule = require('my-module.js')`.  Simply camelCase all words, so `htmlPage` not `HTMLPage` `myApi` not `myAPI` and so on.
-- For database tables and field names use MixedCase.  So `Contacts`, `OrderLines` tables, `Id`, `FirstName` field names etc.  Don't be afraid to use plurals for table names, so `Sessions` rather than `Session`, `OrderLines` over `OrderLine` and so on
-- name commands eg. npm scripts as lower-case-with-hyphen.   Its one less key-stroke than the underscore
+- For database tables (including nosql databases such as AWS DynamoDB) and table field names use MixedCase.  So `Contacts`, `OrderLines` tables, `Id`, `FirstName` field names etc.  Don't be afraid to use plurals for table names, so `Sessions` rather than `Session`, `OrderLines` over `OrderLine` and so on
+- Name commands eg. npm scripts as lower-case-with-hyphen.   Its one less key-stroke than the underscore
 - Name environment variables as UPPERCASE_WITH_UNDERSCORE
 - For everything else (and there is a lot else :-) )  use camelCase.  In the 'everything else' bucket would be JSON field names, HTML form fields, Swagger definitions, configuration such sas AWS API Gateway stage names, etc etc
 
