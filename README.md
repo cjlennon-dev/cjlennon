@@ -2,7 +2,7 @@
 
 ## What is cjlennon?
 
-cjlennon is (apart from being my name - yes thats me - Chris Lennon!) is a system.  A system of software development that is designed to help software developers and software development teams produce high quality, high value code - and do this at the pace needed.  The system seeks to maximise developer creativity by maximizing developer freedom.  While also gaining the benifits that consistency can bring.
+cjlennon is (apart from being my name - yes thats me - Chris Lennon!) is a system.  A system of software development that is designed to help software developers and software development teams produce high quality, high value code - and do this at the pace needed.  The system seeks to maximise value to the customer by maximizing developer creativity by maximizing developer freedom.  While also gaining the benifits that consistency can bring.
 
 The system consists of:
 
