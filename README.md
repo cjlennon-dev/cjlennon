@@ -12,7 +12,7 @@ The system consists of:
 
 Rather than simply presenting patterns in the abstract the sample applications shows (or at least _will_ when it is released) a real-world application of these patterns in use.  Enjoy!!
 
-# A.  Patterns required for collaboration
+# A.  Essential patterns
 
 ## Pattern: Everything is a module
 
@@ -44,11 +44,11 @@ Serverless computing enables the rapid application development and rapid deploym
 
 A common infrastructure is required to enable collaberation between module authors. Of course some of the patterns documented here may help you if you don't use AWS.
 
-#  B.  Patterns recommended for collaberation
+#  B.  Recommended Patterns
 
 ## nodejs
 
-The primary reason you would use nodejs can be summed up in three letters [npm](https://www.npmjs.com).  The wealth of functionality is simply too powerful not to take advangate of
+The primary reason you would use nodejs can be summed up in three letters [npm](https://www.npmjs.com).  The wealth of functionality found in this vast collection is simply too powerful to ignore
 
 ## Pattern: responding to problems
 
