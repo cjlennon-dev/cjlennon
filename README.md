@@ -105,6 +105,6 @@ Where:
 
 **Context**.  For AWS Lambda functions, the context object
 
-## Pattern.  Use semantic versioning
+## Pattern.  Use [semantic versioning](http://semver.org)
 
 Why wouldn't you?
