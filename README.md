@@ -54,7 +54,7 @@ Naming things is hard.  The below guidelines are written so I don't have to keep
 - Name environment variables as UPPERCASE_WITH_UNDERSCORE
 - For everything else (and there is a lot else :-) )  use camelCase.  In the 'everything else' bucket would be JSON field names, HTML form fields, Swagger definitions, configuration such sas AWS API Gateway stage names, etc etc
 
-## Pattern - styling nodejs development
+## Pattern - nodejs code style
 
 If you are developing in nodejs (the sample application is in nodejs) then:
 - always `use strict`
