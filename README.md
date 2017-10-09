@@ -18,7 +18,7 @@ Rather than simply presenting patterns in the abstract the sample applications s
 
 In the cjlennon system, everthing, from application functionality, deployment pipeline tooling, css styling and so on (i.e. _everything_) is encapsulated within a module.
 
-A module is a unit of functionality that is designed to achieve a single purpose. Sometimes these are knows a microservices.  A module needs to have the following characteristics:
+A module is a unit of functionality that is designed to achieve a single purpose. A module needs to have the following characteristics:
 
 - it is a single unit of functionality, i.e. it has a single purpose
 - it accepts a single input (e.g. an event) and produces a single output
@@ -48,7 +48,7 @@ A common infrastructure is required to enable collaberation between module autho
 
 ## nodejs
 
-The primary reason you would use nodejs can be summed up in three letters [npm](https://www.npmjs.com).  The wealth of functionality found in this vast collection is simply too powerful to ignore
+The primary reason you would use nodejs can be summed up in three letters: [npm](https://www.npmjs.com).  The wealth of functionality found in this vast collection is simply too powerful to ignore
 
 ## Pattern: responding to problems
 
@@ -95,15 +95,15 @@ Where:
 
 **stackTrace**.  A full stack trace of the error
 
-**event**.  For AWS Lambda functions, the source event
+**lambdaEvent**.  For AWS Lambda functions, the source event
 
-**context**.  For AWS Lambda functions, the context object
+**lambdaContext**.  For AWS Lambda functions, the context object
 
 #  C.  Suggested patterns
 
 ## Pattern - naming things
 
-Naming things is hard.  The below guidelines are written so I don't have to keep thinking about it
+It is often said that it is more important to be consistant in the way you name things than to be 'right'.  Largely naming things is a matter of convention.  The following conventions are followed in the sample application:
 
 - Folder names, file names and urls
   - name these as lower case with hypen.  So `my-folder-name`, `my-file-name.js`, `/check-user-auth`
