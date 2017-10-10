@@ -8,7 +8,7 @@ The system consists of:
 
 - A set of patterns.  Patterrns are the heart of software development and the current cjlennon patterns are described below
 
-- A sample application.  Named `cognify` this is a full, working piece of open-source software that shows these patterns in use.  This sample application is a responsive web app that allows the management of AWS Cognito users and includes reporting and synchronization with Gsuite (Gmail) contacts.  I am hoping to release this early 2018
+- A sample application.  Named `Cognify` this is a full, working piece of open-source software that shows these patterns in use.  This sample application is a responsive web app that allows the management of AWS Cognito users and includes reporting and synchronization with Gsuite (Gmail) contacts.  I am hoping to release this early 2018
 
 Rather than simply presenting patterns in the abstract the sample applications shows (or at least _will_ when it is released) a real-world application of these patterns in use.  Enjoy!!
 
@@ -25,6 +25,7 @@ A module is a unit of functionality that is designed to achieve a single purpose
 - is self-contained.  That is the module has no dependencies on software other than what is fully contained in the repo (after install).  Because 'no module is an island' modules will generally rely on other services, these dependencies need to be services interacted with over http(s)
 - is documented
 - resides in a single code repository (e.g. a single github repo)
+-  is small.  Of course 'small' is subjective - the point being that less is more when it comes to module authoring.
 - includes instructions and / or code that allows the user to host the module.  So the module sees the 'big picture' and enables end considers all aspects of the SDLC including production hosting and support (devops)
 - is responsible for handling  / logging problems encountered (see the 'responding to problems' section later)
 - is responsible for handling its own state.  Persisting to the database as needed, the module must support a stateless architecture
