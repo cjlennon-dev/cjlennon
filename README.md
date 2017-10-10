@@ -46,10 +46,10 @@ For a given project (project in the sense of a collaberative endevour) use a sin
 
 This does not break the 'everything is a module' pattern because the styling project (which could for example contain LESS files, compiled css and images) is itself a module.
 
-This does mean that some modules, namely those that display content, rely on this styling module to render correctly.  The alternative would be to have each module be responsible for its own styling.  This is a perfectly acceptable pattern (indeed to some extent a better pattern from a purist point of view); however having a global styling module was chosen as the pattern for a few reasons:
+This does mean that some modules, namely those that display content, rely on this styling module to render correctly.  The alternative would be to have each module be responsible for its own styling.  This is actually a perfectly acceptable pattern (indeed to some extent a better pattern from a purist point of view); however having a global styling module was chosen over per-module styling as the pattern for a number of reasons:
 
--  Most projects require a consistant styling.  We don't want the user confused by having to come to terms with different look and feel for different pages within the same application.  A global css file or files will help ensure consistancy
--  The color palette is almost always global to an application.  So even if the style is contained within the module, there will need to be at least a dependency on a set of global colors.  The point being that some sharing of style is very hard to avoid.
+-  Most projects require a consistent styling.  We don't want the user confused by having to come to terms with different look and feel for different pages within the same application.  A global css file or files will help ensure consistancy
+-  The color palette is almost always global to an application.  So even if the style is contained within the module, there will need to be at least a dependency on a set of global colors.  The point being that at least some sharing of style is very hard to avoid.
 - Globalising a style sheet enables the styling to be changed and improved, without the need to change the modules themselves
 -  A global stylesheet enables component re-use.  Components such as dynamic tables, multi-select boxes etc can be rendered in a simple and consistant way
 -  In practical terms graphic design is a skillset that may well not reside within the developer / team authoring the module.  Separating layout from functionality in this way enables the styling work to be done by a team with the graphic design skills required
@@ -141,6 +141,17 @@ Begin your component at version 0.1.0 and use versions less than 1.0.0 to repres
 
 See [semantic versioning](http://semver.org) for more information
 
+### In the sample application
+
+In the sample application the version of every presentational component is output to html.  So for example the login page will display html:
+`<meta data-app-version="0.1.2">`
+
+where `0.1.2` is the component verson as specified in the component's package.json:
+
+`"name": "cjlennon-cognify-login",
+  "author": "Chris Lennon",
+  "version": "0.1.2"`
+
 #  C.  Possible patterns
 
 The below patterns are under consideration:
@@ -153,9 +164,9 @@ Of course for reasons of knowledge sharing, performance (you may not wish to hav
 
 ### In the sample application
 
-No front end framework or templating engine is used in the sample application.  Or to put this another way, the Cognify uses its own rendering system.  Pages are created by using nodejs code and the values needed at run time are injected when the page or component is rendered (using `string.replace()`)
+No front end framework or templating engine is used in the sample application.  Or to put this another way, Cognify uses its own rendering system.  Pages are created by using nodejs code and the values needed at run time are injected when the page or component is rendered (using `string.replace()`)
 
-The html pages and components use a number of open-source components many of which are built on top of jquery
+The html pages and components use a number of open-source components, many of which are built on top of jquery
 
 ## Pattern.  Interacting with the database
 
