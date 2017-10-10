@@ -61,12 +61,6 @@ It does mean that some modules, namely those that display content, rely on this 
 
 The styling for Cognify is powered by the `cjlennon-cognify-global-styles` project, which itself sits on top of a slightly modified AdminLTE stylesheet, which sits on top of bootstrap.  You can find the Cognify styles project and the modified AdminLTE project in this cjlennon github project
 
-#  B.  Recommended Patterns
-
-## nodejs
-
-The primary reason you would use nodejs can be summed up in three letters: [npm](https://www.npmjs.com).  The wealth of functionality found in this vast collection is simply too powerful to ignore
-
 ## Pattern: responding to problems
 
 As we have said, a module is a unit of functionality, designed to accomplish a specific task.  Because of this we can say that there are only two outcomes for a module once it is triggered by an event:
@@ -82,7 +76,17 @@ Of course this is very much a simplification, however it is a helpful concept wh
 
 As an example, let's take an application with a front end that validates user input, and an associated API which also validates user input.  This is good practice and ensures there is an extra layer of validation and security beyond the front end.  If the API receives user input which is not valid it will correctly reject the request.  All is working as designed, however from a user point of view, the module has not completed successfully.  The fact that invalid input was supplied to the API is therefore a problem which must be handled and logged by the API module.
 
-Of course not all problems are of equal severity and it is helpful to have a way of categorising the severity of problems.  It is also helpful to have problems logged in a standard way, this enables you to set up consistent monitoring and alerting rules.  For these two reasons the following is recommended as a specification for logging errors:
+Of course not all problems are of equal severity and it is helpful to have a way of categorising the severity of problems.  It is also helpful to have problems logged in a standard way, this enables you to set up consistent monitoring and alerting rules.  For these two reasons the following is recommended as a specification for logging errors, see the 'cjlennon error logging pattern' later in this document for a possible error logging specification you may want to consider.
+
+#  B.  Suggested Patterns
+
+## nodejs
+
+The primary reason you would use nodejs can be summed up in three letters: [npm](https://www.npmjs.com).  The wealth of functionality found in this vast collection is simply too powerful to ignore
+
+## Pattern: responding to problems
+
+Not all problems are of equal severity and it is helpful to have a consistant way of categorising the severity of problems.  It is also helpful to have problems logged in a standard way, this enables you to set up consistent monitoring and alerting rules.  Below a suggested specification for logging errors:
 
 ### cjlennon error logging specification
 
@@ -116,7 +120,6 @@ Where:
 
 **lambdaContext**.  For AWS Lambda functions, the context object
 
-#  C.  Suggested patterns
 
 ## Pattern - naming things
 
@@ -139,3 +142,17 @@ If you are developing in nodejs (the sample application is in nodejs) then:
 ## Pattern.  Use [semantic versioning](http://semver.org)
 
 Why wouldn't you?
+
+# C.  Possible patterns
+
+The below patterns are under consideration
+
+## Pattern.  Don't use a front end framework
+
+## Pattern.  Rest APIs
+
+## Pattern.  Common database
+
+NoSQL??  DynamoDB
+
+
