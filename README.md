@@ -6,7 +6,7 @@ cjlennon is (apart from being my name - yes thats me - Chris Lennon!) is a syste
 
 The system consists of:
 
-- A set of patterns.  Patterrns are the heart of software development and the current cjlennon patterns are described below
+- A set of patterns.  Patterns are the heart of software development and the current cjlennon patterns are described below
 
 - A sample application.  Named `Cognify` this is a full, working piece of open-source software that shows these patterns in use.  This sample application is a responsive web app that allows the management of AWS Cognito users and includes reporting and synchronization with Gsuite (Gmail) contacts.  I am hoping to release this early 2018
 
