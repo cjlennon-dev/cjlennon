@@ -12,7 +12,7 @@ The system consists of:
 
 Rather than simply presenting patterns in the abstract the sample applications shows (or at least _will_ when it is released) a real-world application of these patterns in use.  Enjoy!!
 
-# A.  Essential patterns
+# A.  Foundation patterns
 
 ## Pattern: Everything is a module
 
@@ -21,8 +21,8 @@ In the cjlennon system, everthing, from application functionality, deployment pi
 A module is a unit of functionality that is designed to achieve a single purpose. A module needs to have the following characteristics:
 
 - It is a single unit of functionality, i.e. it has a single purpose
-- It accepts a single input (e.g. an event) and produces a single output
-- It is self-contained.  That is it has no dependencies on other software other than what is fully contained in the repo.  The module may of course rely on other services, these dependencies need to be services interacted with over http
+- It accepts a single input (e.g. an event) and results in a single outcome (e.g. a component is rendered, a web page is rendered, a Lambda function is updated, an email is sent and so on)
+- It is self-contained.  That is the module has no dependencies on software other than what is fully contained in the repo (after install).  The module may of course rely on other services, these dependencies need to be services interacted with over http(s)
 - It is documented
 - It includes instructions and / or code that allows the user to host the module.  So the module sees the 'big picture' and enables end considers all aspects of the SDLC including production hosting and support (devops)
 
@@ -44,6 +44,23 @@ Serverless computing enables the rapid application development and rapid deploym
 
 A common infrastructure is required to enable collaberation between module authors. Of course some of the patterns documented here may help you if you don't use AWS.
 
+## Pattern.  Global (per project) css styling
+
+For a given project (project in the sense of a collaberative endevour) use a single stylesheet, or set of stylesheets that give the styling for all pages / components within the project.
+
+This does not break the 'everything is a module' pattern because the styling project (which could for example contain LESS files, compiled css and images) is itself a module.
+
+It does mean that some modules, namely those that display content, rely on this styling module to render correctly.  The alternative would be to have each module be responsible for its own styling.  This is a perfectly acceptable pattern (indeed to some extent a better pattern from a purist point of view); however having a global styling module was chosen for a few reasons:
+
+-  Most projects require a consistant styling.  We don't want the user confused by having to come to terms with different look and feel for different pages within the same application.  A global css file or files will help ensure consistancy
+-  Even if you want components responsible for their own styling in terms of layout, the color palette is almost always global to an application.  So even if the style is contained within the module, there will need to be at least a dependency on a set of global color variables
+-  In practical terms graphic design is a skillset that may well not reside within the developer / team authoring the module.  Separating layout from functionality in this way enables the styling work to be done by a team with the graphic design skills required
+-  A global stylesheet enables component re-use.  Components such as dynamic tables, multi-select boxes etc can be rendered in a simple and consistant way
+
+### In the sample application
+
+The styling for Cognify is powered by the `cjlennon-cognify-global-styles` project, which itself sits on top of a slightly modified AdminLTE stylesheet, which sits on top of bootstrap.  You can find the Cognify styles project and the modified AdminLTE project in this cjlennon github project
+
 #  B.  Recommended Patterns
 
 ## nodejs
@@ -59,7 +76,7 @@ As we have said, a module is a unit of functionality, designed to accomplish a s
 
 Of course this is very much a simplification, however it is a helpful concept when it comes to error handling, as we can establish a rule as follows:
 
-#### Rule:  Whenever your module fails to complete successfully, an alert must be logged by the module.  That is, the problem should be trapped by the module, and logged.
+#### Rule:  Whenever your module fails to complete successfully, an alert must be logged by the module.  That is, the problem preventing the module from completing successfully should be trapped by the module, and logged.
 
 ‘Completing successfully’ can be defined as ‘the user gets the result they would expect’.  This is analogous to the ‘happy path’.  Another way of explaining this concept:  the case where a module fails to complete, and no error message is logged by the module itself, should never happen.
 
