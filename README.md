@@ -175,7 +175,7 @@ A common database is also desirable from a reporting and business intelligence p
 
 How then to keep access to a common database isolated within module boundaries?
 
-The answer is possibly that database access should be via API modules?  Reset with Swagger?  GraphQL?
+The answer is possibly that database access should be via API modules?  REST with Swagger?  GraphQL?
 
 
 
