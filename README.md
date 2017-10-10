@@ -18,11 +18,10 @@ Rather than simply presenting patterns in the abstract the sample applications s
 
 In the cjlennon system, everthing, from application functionality, deployment pipeline tooling, css styling and so on (i.e. _everything_) is encapsulated within a module.
 
-A module is a unit of functionality that is designed to achieve a single purpose. A module:
+A module is a unit of functionality that is designed to achieve a single, specific purpose. A module:
 
-- is a single unit of functionality, i.e. it has a single purpose
 - accepts a single input (e.g. an event) and results in a single outcome (e.g. a component is rendered, a web page is rendered, a Lambda function is updated, emails are sent and so on)
-- is self-contained.  That is the module has no dependencies on software other than what is fully contained in the repo (after install).  Because 'no module is an island' modules will generally rely on other services, these dependencies need to be services interacted with over http(s)
+- is self-contained.  That is the module has no dependencies on software other than what is fully contained in the module itself (after install).  Because 'no module is an island' modules will generally rely on other services, these dependencies need to be services interacted with over http(s)
 - is documented
 - resides in a single code repository (e.g. a single github repo)
 -  is small.  Of course 'small' is subjective - the point being that less is more when it comes to module authoring.
@@ -48,7 +47,7 @@ This does not break the 'everything is a module' pattern because the styling pro
 
 This does mean that some modules, namely those that display content, rely on this styling module to render correctly.  The alternative would be to have each module be responsible for its own styling.  This is actually a perfectly acceptable pattern (indeed to some extent a better pattern from a purist point of view); however having a global styling module was chosen over per-module styling as the pattern for a number of reasons:
 
--  Most projects require a consistent styling.  We don't want the user confused by having to come to terms with different look and feel for different pages within the same application.  A global css file or files will help ensure consistancy
+-  Most projects require a consistent styling.  We don't want the user confused by having to come to terms with a different look and feel for different pages within the same application.  A global css file or files will help ensure consistancy
 -  The color palette is almost always global to an application.  So even if the style is contained within the module, there will need to be at least a dependency on a set of global colors.  The point being that at least some sharing of style is very hard to avoid.
 - Globalising a style sheet enables the styling to be changed and improved, without the need to change the modules themselves
 -  A global stylesheet enables component re-use.  Components such as dynamic tables, multi-select boxes etc can be rendered in a simple and consistant way
@@ -77,7 +76,7 @@ Of course not all problems are of equal severity and it is helpful to have a way
 
 #  B.  Suggested Patterns
 
-## nodejs
+## Pattern: Use nodejs
 
 The primary reason you would use nodejs can be summed up in three letters: [npm](https://www.npmjs.com).  There is a wealth of functionality found in this vast collection and when rapid application development is the goal, nodejs is hard to ignore
 
