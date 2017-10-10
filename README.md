@@ -143,7 +143,7 @@ If you are developing in nodejs (the sample application is in nodejs) then:
 
 Why wouldn't you?
 
-# C.  Possible patterns
+#  C.  Possible patterns
 
 The below patterns are under consideration
 
