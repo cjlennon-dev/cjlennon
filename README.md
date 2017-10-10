@@ -14,18 +14,21 @@ Rather than simply presenting patterns in the abstract the sample applications s
 
 # A.  Foundation patterns
 
+Foundation patterns are required for authors and contributers to cjlennon modules to collaberate effectively.
+
 ## Pattern: Everything is a module
 
 In the cjlennon system, everthing, from application functionality, deployment pipeline tooling, css styling and so on (i.e. _everything_) is encapsulated within a module.
 
-A module is a unit of functionality that is designed to achieve a single, specific purpose. A module:
+A module is a self-contained unit of functionality that is designed to achieve a single, specific purpose. A module:
 
 - accepts a single input (e.g. an event) and results in a single outcome (e.g. a component is rendered, a web page is rendered, a Lambda function is updated, emails are sent and so on)
-- is self-contained.  That is the module has no dependencies on software other than what is fully contained in the module itself (after install).  Because 'no module is an island' modules will generally rely on other services, these dependencies need to be services interacted with over http(s)
+- is self-sufficient.  That is the module has no dependencies on software other than what is fully contained in the module itself (after install).  Because 'no module is an island' modules will generally rely on other services, these dependencies need to be services interacted with over http(s)
+- has one or more contributers who support and improve the module through its life-cycle
 - is documented
 - resides in a single code repository (e.g. a single github repo)
--  is small.  Of course 'small' is subjective - the point being that less is more when it comes to module authoring.
-- includes instructions and / or code that allows the user to host the module.  So the module sees the 'big picture' and enables end considers all aspects of the SDLC including production hosting and support (devops)
+- is small.  Of course 'small' is subjective - the point being that 'less is more' when it comes to module authoring.
+- is hosting, production and support aware.  The module should include instructions and optionally code (e.g. terraform, cloudformation etc scripts) which will install the module into production, fully ready to receive and process events passed in
 - is responsible for handling  / logging problems encountered (see the 'responding to problems' section later)
 - is responsible for handling its own state.  Persisting to the database as needed, the module must support a stateless architecture
 
@@ -75,6 +78,10 @@ As an example, let's take an application with a front end that validates user in
 Of course not all problems are of equal severity and it is helpful to have a way of categorising the severity of problems.  It is also helpful to have problems logged in a standard way as this enables you to set up consistent monitoring and alerting rules.  For these two reasons this guide includes an error logging specification -  see the 'cjlennon error logging pattern' later in this document for an error logging specification you may want to consider.
 
 #  B.  Suggested Patterns
+
+Suggested patterns are not a requirement for cjlennon module authors to collaberate together, however if a suggested pattern is not used there should be discussion and alignment around how to gain the benefits of standardisation in these areas.
+
+For example, if the cjlennon error logging specification below is not going to be used, the project team should discuss what mechanism will be used to ensure that effective logging and alerting is able to be established accross the application.
 
 ## Pattern: Use nodejs
 
@@ -153,7 +160,7 @@ where `0.1.2` is the component verson as specified in the component's package.js
 
 #  C.  Possible patterns
 
-The below patterns are under consideration:
+Possible patterns are being researched and considered.
 
 ## Pattern.  Don't specify a front end framework
 
