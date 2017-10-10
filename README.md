@@ -84,9 +84,9 @@ Of course not all problems are of equal severity and it is helpful to have a way
 
 The primary reason you would use nodejs can be summed up in three letters: [npm](https://www.npmjs.com).  The wealth of functionality found in this vast collection is simply too powerful to ignore
 
-## Pattern: responding to problems
+## Pattern: Use a common error logging specification
 
-Not all problems are of equal severity and it is helpful to have a consistant way of categorising the severity of problems.  It is also helpful to have problems logged in a standard way, this enables you to set up consistent monitoring and alerting rules.  Below a suggested specification for logging errors:
+Not all problems are of equal severity and it is helpful to have a consistant way of categorising the severity of problems.  It is also helpful to have problems logged in a standard way as this enables you to set up consistent monitoring and alerting rules.  Below a suggested specification for logging errors:
 
 ### cjlennon error logging specification
 
