@@ -21,7 +21,7 @@ In the cjlennon system, everthing, from application functionality, deployment pi
 A module is a unit of functionality that is designed to achieve a single purpose. A module:
 
 - is a single unit of functionality, i.e. it has a single purpose
-- accepts a single input (e.g. an event) and results in a single outcome (e.g. a component is rendered, a web page is rendered, a Lambda function is updated, an email is sent and so on)
+- accepts a single input (e.g. an event) and results in a single outcome (e.g. a component is rendered, a web page is rendered, a Lambda function is updated, emails are sent and so on)
 - is self-contained.  That is the module has no dependencies on software other than what is fully contained in the repo (after install).  Because 'no module is an island' modules will generally rely on other services, these dependencies need to be services interacted with over http(s)
 - is documented
 - resides in a single code repository (e.g. a single github repo)
