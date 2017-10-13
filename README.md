@@ -128,7 +128,7 @@ Where:
 
 It is often said that it is more important to be consistant in the way you name things than to be 'right'.  Naming things is largely a matter of convention.  The following conventions are followed in the sample application:
 
-- Folder names, file names and urls are named as lowercase-with-hypen.  So `my-folder-name`, `my-file-name.js`, `/check-user-auth`
+- Folder names, file names, Lambda function names and urls are named as lowercase-with-hypen.  So `my-folder-name`, `my-file-name.js`, `/check-user-auth`
 - In code use camelCase.  So `let myModule = require('my-module.js')`.  Simply camelCase all words, so `htmlPage` not `HTMLPage` `myApi` not `myAPI` and so on.
 - For database tables (including Nosql databases such as AWS DynamoDB) and table field names use MixedCase.  So `Contacts`, `OrderLines` tables, `Id`, `FirstName` field names etc.  Use plurals for table names, so `Sessions` rather than `Session`, `OrderLines` over `OrderLine` and so on
 - Name commands e.g. npm scripts as lower-case-with-hyphen.   Its one less key-stroke than the underscore
