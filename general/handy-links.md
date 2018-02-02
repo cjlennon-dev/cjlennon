@@ -14,7 +14,7 @@ Check for updates (first install the npm-check module)
 ````npm-check````
 
 Update modules and update package.json (first install the npm-check module)
-````npm-check -update````
+````npm-check -u````
 
 Check for any upcoming alpha or beta versions (first install the ncu module)
 ````ncu --greatest````
