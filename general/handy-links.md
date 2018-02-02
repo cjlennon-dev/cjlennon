@@ -5,7 +5,7 @@ List remote urls
 ````git remote -v````
 
 Change remote repo name
-````git remote set-url origin new_url````
+````git remote set-url origin [new url]````
 
 List installed modules
 ````npm ls -depth=0````
